@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+</html><html>
+<head>
+<title>CAD App</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+<p><h1 align="center">Coronay Artery disease Classification</h1></p>
+
+</body>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 20%;
+  height: 500px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 80%;
+  background-color: #f1f1f1;
+  height: 500px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Coronary heart disease</h2>
+<p>  1.Very common
+More than 10 million cases per year (India),Damage or disease in the heart's major blood vessels.</p>
+<p>  2.CAUSES:The usual cause is the build-up of plaque. This causes coronary arteries to narrow, limiting blood flow to the heart.</p>
+<p>  3.SYMPTOMS:Coronary artery disease can range from no symptoms, to chest pain, to a heart attack.</p>
+<p>  4.TREAMTMENTS:It include lifestyle changes, medication, angioplasty and surgery.
+</p>
+<header>
+  <h2>AI-assist</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="#">Log in</a></li>
+      <li><a href="#">Records</a></li>
+      <li><a href="#">about us</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <div class="container">
+<div class="row">
+    <h2>Select a file to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+            <p>2nd stage of Coronary Artery Disease</p>
+        </div>
+    {% endif %}
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" class="form-control" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Predicte" class="btn btn-info">
+        </p>
+    </form>
+</div>
+</div>
+  </article>
+</section>
+
+<footer>
+  <p>More...</p>
+</footer>
+
+</body>
+</html>
